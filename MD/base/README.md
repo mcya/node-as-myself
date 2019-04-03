@@ -89,6 +89,91 @@ var name2 = FunB();// 运行 FunB，name = 'Sam'
 console.log(name1);
 console.log(name2);
 ```
+3. 延伸 - 使用
+
+```js
+// 自定义的字典配置数据
+const DictUtil = {};
+
+//订单服务状态
+DictUtil.getOrderCrsstatus = function (statusCode) {
+    let status;
+    switch (statusCode) {
+      case 'Recognitionchip':
+        status = '认筹'
+        break;
+      case 'Reserved':
+        status = '预留'
+        break;
+      case 'Subscription':
+        status = '认购'
+        break;
+      case 'Aftersale':
+        status = '签约' //售后都叫签约
+        break;
+      case 'Sign':
+        status = '签约'
+        break;
+      case 'Exchangeroom':
+        status = '换房'
+        break;
+      case 'Checkout':
+        status = '退房'
+        break;
+      case 'Breachofcontract':
+        status = '挞定'
+        break;
+      default:
+          status = ''
+    }
+    return status;
+}
+
+//时间格式化函数
+DictUtil.dateformat = function (date, format) {
+  if (date === null || date === undefined) {
+    return null;
+  }
+  if (!(date instanceof Date)) { // date非日期对象时，自动转化为日期对象
+    //解决ie和firefox浏览器下的兼容性问题
+    //ps: ie和firefox下new Date()构造器不支持yyyy-mm-dd hh:mm:ss，但是支持yyyy/mm/dd hh:mm:ss
+    if (typeof(date) === 'string') {
+      const formatDate = date.replace(/\-/g, '/');
+      date = new Date(formatDate)
+    } else {
+      date = new Date(date)
+    }
+  }
+  var o = {
+    "M+": date.getMonth() + 1,
+    "d+": date.getDate(),
+    "h+": date.getHours(),
+    "m+": date.getMinutes(),
+    "s+": date.getSeconds(),
+    "q+": Math.floor((date.getMonth() + 3) / 3),
+    "S": date.getMilliseconds()
+  }
+  if (/(y+)/.test(format)) {
+    format = format.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+  }
+  for (var k in o) {
+    if (new RegExp("(" + k + ")").test(format)) {
+      format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+    }
+  }
+  //console.log(format);
+  return format;
+}
+
+export default DictUtil;
+
+```
+```js
+// 使用
+import { dateformat } from 'dict-util';
+
+var nowDay = dateformat(new Date(), 'yyyyMMdd'); //获取当前日期
+```
 
 # npm scripts
 ### 什么是 npm 脚本
