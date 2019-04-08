@@ -105,24 +105,6 @@ DictUtil.getOrderCrsstatus = function (statusCode) {
       case 'Reserved':
         status = '预留'
         break;
-      case 'Subscription':
-        status = '认购'
-        break;
-      case 'Aftersale':
-        status = '签约' //售后都叫签约
-        break;
-      case 'Sign':
-        status = '签约'
-        break;
-      case 'Exchangeroom':
-        status = '换房'
-        break;
-      case 'Checkout':
-        status = '退房'
-        break;
-      case 'Breachofcontract':
-        status = '挞定'
-        break;
       default:
           status = ''
     }
