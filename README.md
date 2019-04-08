@@ -17,6 +17,23 @@
 
 ### 2.Node.js API及常用第三方模块
 #### 2.1 [http 模块](https://github.com/mcya/node-as-myself/tree/master/MD/third/http)
+```bash
+所有后端动态语言要想运行起来，都得先搭建服务器。Node.js 搭建服务器需要用到一个原生的模块 http。
+1. 加载 http 模块
+2. 调用 http.createServer() 方法创建服务，方法接受一个回调函数，回调函数中有两个参数，第一个是请求体，第二个是响应体。
+3. 在回调函数中一定要使用 response.end() 方法，用于结束当前请求，不然当前请求会一直处在等待的状态。
+4. 调用 listen 监听一个端口。
+
+如果是常规开发，在我们执行`npm install`的时候就已经在包中写好。
+```
+```js
+// http.createServer 格式
+http.createServer(function(req, res){}).listen(3000)
+
+// or
+var app = function(req, res) { };
+http.createServer(app).listen(3000);
+```
 
 #### 2.2 [net 模块](https://github.com/mcya/node-as-myself/tree/master/MD/third/net)
 #### 2.3 [url 模块](https://github.com/mcya/node-as-myself/tree/master/MD/third/url)
