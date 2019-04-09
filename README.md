@@ -1,6 +1,6 @@
 # node #
 
-### 1. [XX0 基础篇](https://github.com/mcya/node-as-myself/tree/master/MD/01_base)
+### 1. [XX0 基础篇](https://github.com/mcya/node-as-myself/tree/master/01_base)
 
 ```bash
   - 关于node以及相关版本
@@ -16,7 +16,7 @@
 ```
 
 ### 2.Node.js API及常用第三方模块
-#### 2.1 [http 模块](https://github.com/mcya/node-as-myself/tree/master/MD/02_third/02_01_http)
+#### 2.1 [http 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_01_http)
 ```bash
 所有后端动态语言要想运行起来，都得先搭建服务器。Node.js 搭建服务器需要用到一个原生的模块 http。
 1. 加载 http 模块
@@ -39,7 +39,7 @@ http.createServer(app).listen(3000);
 
 ```
 
-#### 2.2 [net 模块](https://github.com/mcya/node-as-myself/tree/master/MD/02_third/02_02_net)
+#### 2.2 [net 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_02_net)
 
 在Node中，net模块提供创建基于TCP协议的网络通信的API。
 ```js
@@ -47,8 +47,28 @@ http.createServer(app).listen(3000);
 
 // 1.引入内置的net模块
 var net = require("net");
+
+// createServer创建一个 TCP 服务器:
+// [其他相关事件点击文档继续查看]
+var server = net.createServer( function (socket) {
+
+  //新的连接
+  socket.on('data', function (data) {
+    socket.write("您好")
+  });
+
+  socket.on('end', function () {
+    console.log('连接断开')
+  });
+
+  socket.write("实例: \n");
+});
+
+server.listen(8124, function () {
+  console.log('server bound');
+});
 ```
 
 
 
-#### 2.3 [url 模块](https://github.com/mcya/node-as-myself/tree/master/MD/02_third/02_03_url)
+#### 2.3 [url 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_03_url)
