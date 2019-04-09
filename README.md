@@ -1,6 +1,6 @@
 # node #
 
-### 1. [XX0 基础篇](https://github.com/mcya/node-as-myself/tree/master/MD/base)
+### 1. [XX0 基础篇](https://github.com/mcya/node-as-myself/tree/master/MD/01_base)
 
 ```bash
   - 关于node以及相关版本
@@ -16,7 +16,7 @@
 ```
 
 ### 2.Node.js API及常用第三方模块
-#### 2.1 [http 模块](https://github.com/mcya/node-as-myself/tree/master/MD/third/http)
+#### 2.1 [http 模块](https://github.com/mcya/node-as-myself/tree/master/MD/02_third/02_01_http)
 ```bash
 所有后端动态语言要想运行起来，都得先搭建服务器。Node.js 搭建服务器需要用到一个原生的模块 http。
 1. 加载 http 模块
@@ -28,12 +28,16 @@
 ```
 ```js
 // http.createServer 格式
-http.createServer(function(req, res){}).listen(3000)
+http.createServer(function(reqeust, response){
+  //第二个参数response（可省）传入一个布尔值，默认为false，为true时，返回的url对象中，query的属性为一个对象
+}).listen(3000)
+
 
 // or
 var app = function(req, res) { };
 http.createServer(app).listen(3000);
+
 ```
 
-#### 2.2 [net 模块](https://github.com/mcya/node-as-myself/tree/master/MD/third/net)
-#### 2.3 [url 模块](https://github.com/mcya/node-as-myself/tree/master/MD/third/url)
+#### 2.2 [net 模块](https://github.com/mcya/node-as-myself/tree/master/MD/02_third/02_02_net)
+#### 2.3 [url 模块](https://github.com/mcya/node-as-myself/tree/master/MD/02_third/02_03_url)
