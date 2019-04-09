@@ -40,4 +40,15 @@ http.createServer(app).listen(3000);
 ```
 
 #### 2.2 [net 模块](https://github.com/mcya/node-as-myself/tree/master/MD/02_third/02_02_net)
+
+在Node中，net模块提供创建基于TCP协议的网络通信的API。
+```js
+// 基本构建步骤
+
+// 1.引入内置的net模块
+var net = require("net");
+```
+
+
+
 #### 2.3 [url 模块](https://github.com/mcya/node-as-myself/tree/master/MD/02_third/02_03_url)
