@@ -16,7 +16,7 @@
 ```
 
 ### 2.Node.js API及常用第三方模块(HTTP+net+URL+querystring+events+fs+stream+cheerio+anyproxy抓包+mocha单元测试)
-#### 2.1 [http 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi(第三方模块：HTTP+net+URL+querystring+events+fs+stream+cheerio+anyproxy抓包+mocha单元测试)/02_01_http)
+#### 2.1 [http 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi(HTTP+net+URL+querystring+events+fs+stream+cheerio+anyproxy抓包+mocha单元测试)/02_01_http)
 ```bash
 所有后端动态语言要想运行起来，都得先搭建服务器。Node.js 搭建服务器需要用到一个原生的模块 http。
 1. 加载 http 模块
@@ -39,7 +39,7 @@ http.createServer(app).listen(3000);
 
 ```
 
-#### 2.2 [net 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi(第三方模块：HTTP+net+URL+querystring+events+fs+stream+cheerio+anyproxy抓包+mocha单元测试)/02_02_net)
+#### 2.2 [net 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi(HTTP+net+URL+querystring+events+fs+stream+cheerio+anyproxy抓包+mocha单元测试)/02_02_net)
 
 在Node中，net模块提供创建基于TCP协议的网络通信的API。
 ```js
@@ -71,4 +71,4 @@ server.listen(8124, function () {
 
 
 
-#### 2.3 [url 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi(第三方模块：HTTP+net+URL+querystring+events+fs+stream+cheerio+anyproxy抓包+mocha单元测试)/02_03_url)
+#### 2.3 [url 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi(HTTP+net+URL+querystring+events+fs+stream+cheerio+anyproxy抓包+mocha单元测试)/02_03_url)
