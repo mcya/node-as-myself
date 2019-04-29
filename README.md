@@ -118,3 +118,29 @@ var urlObj = {
 var result = url.format(urlObj);
 console.log(result);
 ```
+
+#### 2.4 [querystring 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_04_querystring)
+GET 请求时参数都来自 URL，而 URL 都是字符串格式，为了方便操作，可以把字符串格式的参数通过 querystring 转换格式
+
+```js
+var querystring = require('querystring');
+
+var obj={firstname:"dk",url:"http://dk-lan.com", lastname: 'tom', passowrd: 123456};
+
+//将对象转换成字符串 - 没有指定分隔符和分配符,并且自动编码汉字
+var param= querystring.stringify(obj);
+console.log(param);
+// firstname=dk&url=http%3A%2F%2Fdk-lan.com&lastname=tom&passowrd=123456
+
+//将字符串转换成对象
+var newobj=querystring.parse(param);
+console.log(newobj);
+/*
+{ firstname: 'dk',
+  url: 'http://dk-lan.com',
+  lastname: 'tom',
+  passowrd: '123456' }
+*/
+```
+
+#### 2.5 [events 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_05_events)
