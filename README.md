@@ -144,3 +144,38 @@ console.log(newobj);
 ```
 
 #### 2.5 [events 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_05_events)
+
+```javascript
+// -用法
+// - 实例化一个事件实例 new events.EventEmitter();
+// - 在实例对象上定义事件 on(eventname, function(){})
+// - 通地 emit 方法触发事件 emit(eventname)
+
+// 引入 events 模块
+var events = require('events');
+// 创建 eventEmitter 对象
+var eventEmitter = new events.EventEmitter();
+
+// 绑定事件及事件的处理程序
+eventEmitter.on('connection', function(){
+    console.log('连接成功。');
+	// 触发 data_received 事件
+	eventEmitter.emit('data_received');
+});
+
+// 使用匿名函数绑定 data_received 事件
+eventEmitter.on('data_received', function(){
+	console.log('数据接收成功。');
+});
+
+//用 eventEmitter 对象的 emit 方法来调用事件
+eventEmitter.emit('connection');
+console.log("程序执行完毕。");
+
+/*
+ 执行结果：
+    数据接收成功。
+    程序执行完毕。
+    连接成功。
+*/
+```
