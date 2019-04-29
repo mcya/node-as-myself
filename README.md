@@ -16,7 +16,7 @@
 ```
 
 ### 2.Node.js API及常用第三方模块(HTTP+net+URL+querystring+events+fs+stream+cheerio+anyproxy抓包+mocha单元测试)
-#### 2.1 [http 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi(HTTP+net+URL+querystring+events+fs+stream+cheerio+anyproxy抓包+mocha单元测试)/02_01_http)
+#### 2.1 [http 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_01_http)
 ```bash
 所有后端动态语言要想运行起来，都得先搭建服务器。Node.js 搭建服务器需要用到一个原生的模块 http。
 1. 加载 http 模块
@@ -38,8 +38,26 @@ var app = function(req, res) { };
 http.createServer(app).listen(3000);
 
 ```
+```js
+var http = require('http');
+var url = require('url');
+var querystring = require('querystring');
 
-#### 2.2 [net 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi(HTTP+net+URL+querystring+events+fs+stream+cheerio+anyproxy抓包+mocha单元测试)/02_02_net)
+http.createServer(function(reqeust, response){
+	var urlObj = url.parse(reqeust.url, false);
+	var query = urlObj.query;
+	console.log(query);
+	response.end('Hello Node');
+}).listen(8010);
+
+// 运行效果
+/*
+  node *.js 后浏览器输入 http://localhost:8010/ 页面就会显示 【Hello Node】
+*/
+
+```
+
+#### 2.2 [net 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_02_net)
 
 在Node中，net模块提供创建基于TCP协议的网络通信的API。
 ```js
@@ -71,6 +89,32 @@ server.listen(8124, function () {
 
 
 
-#### 2.3 [url 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi(HTTP+net+URL+querystring+events+fs+stream+cheerio+anyproxy抓包+mocha单元测试)/02_03_url)
-```
+#### 2.3 [url 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_03_url)
+请求的 url 都是字符串类型，url 所包含的信息也比较多，比如有：协议、主机名、端口、路径、参数、锚点等，如果对字符串解析这些信息的话，会相对麻烦，因此，Node.js 的原生模块 url 模块便可轻松解决这一问题
+
+`url.parse 将一个地址URL解析成对象的格式 - 字符串转对象`
+
+`url.format 将一个对象格式转换成URL地址 - 对象转字符串`
+```js
+var url = require('url');
+
+//第二个参数为 true => {a: 'index', t: 'article', m: 'default'} - //urlObj.query 为一个对象
+var urlObj = url.parse('http://www.dk-lan.com/one?a=index&t=article&m=default#dk', true);
+console.log(urlObj);
+
+//第二个参数为 false - //urlObj.query 为一个字符串 => ?a=index&t=article&m=default
+urlObj = url.parse('http://www.dk-lan.com/one?a=index&t=article&m=default#dk', false);
+console.log(urlObj);
+
+var urlObj = {
+  protocol: 'http:',
+  slashes: true,
+  hostname: 'dk-lan.com',
+  port: 80,
+  hash: '#hash',
+  search: '?query=string',
+  path: '/nodejs?query=string'
+}
+var result = url.format(urlObj);
+console.log(result);
 ```
