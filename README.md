@@ -6,12 +6,13 @@
 ├─01_base                           #nodeJS一些日常化的知识点
 │
 ├─02_thirdApi                       #Node.js API及常用第三方模块
-│ ├─02_01_http                      #http
-│ ├─02_02_net                       #net
-│ ├─02_03_url                       #url
-│ ├─02_04_querystring               #querystring
-│ ├─02_05_events                    #events
-│ ├─02_06_fs                        #fs
+│ ├─02_01_http                      #http模块
+│ ├─02_02_net                       #net模块
+│ ├─02_03_url                       #url模块
+│ ├─02_04_querystring               #querystring 查询(参数)模块
+│ ├─02_05_events                    #events模块
+│ ├─02_06_fs                        #fs 文件模块
+│ ├─02_07_stream                    #stream模块 (文件流接口)
 ```
 
 ## 内容简介
@@ -136,6 +137,7 @@ console.log(result);
 ```
 
 #### 2.4 [querystring 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_04_querystring)
+查询(参数)模块。
 GET 请求时参数都来自 URL，而 URL 都是字符串格式，为了方便操作，可以把字符串格式的参数通过 querystring 转换格式
 
 ```js
@@ -196,8 +198,9 @@ console.log("log: 程序执行完毕。");
 */
 ```
 
-#### 2.5 [fs 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_06_fs)
+#### 2.6 [fs 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_06_fs)
 
+文件模块。
 出于安全因互，javascript 是不能操作本地文件，所以文件的处理都会放到服务端去处理。Node.js 作为一门后端动态语言，同样具备了操作文件的功能，这一操作需要用到 Node.js 的原生模块：fs。 - 类似 文本读取写入和图片读取
 
 ```js
@@ -224,4 +227,53 @@ http.createServer(function(request, response){
 	response.end();
 }).listen(8888);
 console.log('Server running at http://127.0.0.1:8888/'); //访问地址端口
+```
+
+#### 2.7 [stream 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_07_stream)
+文件流。
+Stream 是一个抽象接口，Node 中有很多对象实现了这个接口。例如，对http 服务器发起请求的request 对象就是一个 Stream，还有stdout（标准输出）。往往用于打开大型的文本文件，创建一个读取操作的数据流。所谓大型文本文件，指的是文本文件的体积很大，读取操作的缓存装不下，只能分成几次发送，每次发送会触发一个data事件，发送结束会触发end事件。
+```js
+// 结合fs读取模块，对文件进行流式处理
+
+var fs = require("fs");
+var readerData = '', writeData = '坚决抵制一切不利于中国和世界和平的动机';
+
+
+// 创建可读流
+var readerStream = fs.createReadStream('input.txt');//读取 input.txt 文件
+readerStream.setEncoding('UTF8');// 设置编码为 utf8。
+readerStream.on('data', function(chunk) { readerData += chunk }); //文件流的处理过程
+readerStream.on('end',function(){ console.log(readerData); }); //成功读取文件流 输出data内容
+readerStream.on('error', function(err){ console.log(err.stack); });//出错的情况
+console.log("程序执行完毕");
+
+
+// 创建一个可以写入的流，写入到文件 output.txt 中
+// var writerStream = fs.createWriteStream('output.txt', {'flags': 'a'}); //追加文本
+var writerStream = fs.createWriteStream('output.txt'); //内容直接覆盖原文本
+writerStream.write(writeData,'UTF8');// 使用 utf8 编码写入数据
+writerStream.end();// 标记文件末尾
+writerStream.on('finish', function() { console.log("写入完成。"); });// 处理流事件 --> data, end, and error
+writerStream.on('error', function(err){ console.log(err.stack); });
+console.log("程序执行完毕");
+
+
+// 管道读写操作 - 即读取一个文件且将该文件写入另一个文件中
+// 读取 input.txt 文件内容，并将内容写入到 output.txt 文件中 - 直接覆盖原先的内容
+readerStream.pipe(writerStream);
+
+
+// 压缩解压
+var zlib = require('zlib');//压缩和解压的模块
+
+// 压缩
+fs.createReadStream('input.txt')// 以流的方式读取文本
+  .pipe(zlib.createGzip()) //把读取出来的文本调用压缩模块进行压缩
+  .pipe(fs.createWriteStream('input.txt.zip'));//把压缩好的流进行保存
+
+// 解压
+fs.createReadStream('input.txt.zip'); //文件名应该是对应的
+  .pipe(zlib.createGunzip())
+  .pipe(fs.createWriteStream('input1.txt'));
+console.log("程序执行完毕");
 ```
