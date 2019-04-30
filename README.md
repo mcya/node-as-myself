@@ -2,8 +2,7 @@
 
 #### 目录说明
 
-```
-
+```bash
 ├─01_base                           #nodeJS一些日常化的知识点
 │
 ├─02_thirdApi                       #Node.js API及常用第三方模块
@@ -13,7 +12,6 @@
 │ ├─02_04_querystring               #querystring
 │ ├─02_05_events                    #events
 │ ├─02_06_fs                        #fs
-
 ```
 
 ### 1. [node 基础篇](https://github.com/mcya/node-as-myself/tree/master/01_base)
