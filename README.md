@@ -1,6 +1,22 @@
 # node #
 
-### 1. [XX0 基础篇](https://github.com/mcya/node-as-myself/tree/master/01_base(nodeJS一些日常化的知识点))
+#### 目录说明
+
+```
+
+├─01_base                           #nodeJS一些日常化的知识点
+│
+├─02_thirdApi                       #Node.js API及常用第三方模块
+│ ├─02_01_http                      #http
+│ ├─02_02_net                       #net
+│ ├─02_03_url                       #url
+│ ├─02_04_querystring               #querystring
+│ ├─02_05_events                    #events
+│ ├─02_06_fs                        #fs
+
+```
+
+### 1. [node 基础篇](https://github.com/mcya/node-as-myself/tree/master/01_base)
 
 ```bash
   - 关于node以及相关版本
@@ -178,4 +194,34 @@ console.log("log: 程序执行完毕。");
     log: 程序执行完毕。
     log: 连接成功。
 */
+```
+
+#### 2.5 [fs 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_06_fs)
+
+出于安全因互，javascript 是不能操作本地文件，所以文件的处理都会放到服务端去处理。Node.js 作为一门后端动态语言，同样具备了操作文件的功能，这一操作需要用到 Node.js 的原生模块：fs。 - 类似 文本读取写入和图片读取
+
+```js
+var fs = require('fs');
+
+// 文本读取
+fs.readFile('demoFile.txt', function (err, data) {
+   if (err) { return console.error(err); }
+   console.log("异步读取: " + data.toString());
+});
+
+// appendFile 追加文本
+fs.appendFile('input.txt', '+这个是追加的内容+', function (err) {});
+
+// writeFiel 是覆盖写入文本
+fs.writeFile('input.txt', '抵制一切不利于中国和世界和平的动机',  function(err) {});
+
+// 浏览器图片读取
+var http = require('http');
+var content =  fs.readFileSync('001.jpg', "binary");
+http.createServer(function(request, response){
+	response.writeHead(200, {'Content-Type': 'image/jpeg'});
+	response.write(content, "binary");
+	response.end();
+}).listen(8888);
+console.log('Server running at http://127.0.0.1:8888/'); //访问地址端口
 ```
