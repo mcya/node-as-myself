@@ -1,6 +1,6 @@
 # node #
 
-#### 目录说明
+## 目录说明
 
 ```bash
 ├─01_base                           #nodeJS一些日常化的知识点
@@ -13,6 +13,8 @@
 │ ├─02_05_events                    #events
 │ ├─02_06_fs                        #fs
 ```
+
+## 内容简介
 
 ### 1. [node 基础篇](https://github.com/mcya/node-as-myself/tree/master/01_base)
 
