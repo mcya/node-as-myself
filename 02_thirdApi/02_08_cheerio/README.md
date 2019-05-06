@@ -22,7 +22,7 @@ $.html()
 //=> <h2 class="title welcome">Hello there!</h2>
 ```
 
-### 原生模块爬虫-img
+### 原生模块爬虫 - 抓取图片
 ```js
 var http = require("http");
 var fs = require("fs");
