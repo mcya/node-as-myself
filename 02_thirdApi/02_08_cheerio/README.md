@@ -1,20 +1,26 @@
 # cheerio #
+Cheerio实现了核心jQuery的一个子集。Cheerio从jQuery库中删除了所有DOM不一致和浏览器残骸，揭示了它真正华丽的API。
+即，Cheerio模块引入了jquery核心的一部分，去除了jquery库中所有在DOM和浏览器的不兼容部分，只保留了它主要核心API。
 
-### 原生模块爬虫
+### 安装
+`npm install cheerio`
+官网: [cheerio官网 https://github.com/cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
+
+### 示例
 ```js
-// 完整的demo - 需要手动创建img文件夹
+// 构建Dom结构 - 解析dom结构的: 01_domAnalysis.js
+const cheerio = require('cheerio')
+const $ = cheerio.load('<h2 class="title">Hello world</h2>')
 
-/*
+$('h2.title').text('Hello there!')
+$('h2').addClass('welcome')
 
-// 注意要遍历生成多个写入流，不然有可能下载文件写入不成功
-for(let i = 0; i < imgs.length; i++) {
-	var imgStream = fs.createWriteStream(`./img/vks${i}.jpg`);
-	download(imgs, i, imgStream)
-}
+$.html()
+//=> <h2 class="title welcome">Hello there!</h2>
+```
 
-*/
-
-
+### 原生模块爬虫-img
+```js
 var http = require("http");
 var fs = require("fs");
 //类似于 jQ
@@ -47,7 +53,7 @@ var request = http.request({
     console.log("imgs", imgs);
 		// 遍历创建对应的 可写流
 		for(let i = 0; i < imgs.length; i++) {
-			var imgStream = fs.createWriteStream(`./img/ivsky${i}.jpg`);
+			var imgStream = fs.createWriteStream(`./img/vks${i}.jpg`);
 			download(imgs, i, imgStream)
 		}
 	})
@@ -61,16 +67,7 @@ request.end();
 
 function download(imgs, i, imgStream) {
 	http.get(imgs[i], function(res) {
-    // res.pipe(imgStream)
-    // 在pipe之前添加on('error',fn)可以监听错误，在后面添加on('close',fn)可以监听完成
-
-		res.on('error', (err) => {console.log(err)})
-       .pipe(imgStream)
-       .on('close', () => { console.log('成功!') })
+		res.pipe(imgStream);
 	})
 }
-//注意加end方法 结束请求
-//req.end()必须被调用，即使没有在请求体内写入任何数据
-//也必须调用。因为这表示已经完成HTTP请求
-
 ```

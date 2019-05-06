@@ -43,7 +43,7 @@ var request = http.request({
     console.log("imgs", imgs);
 		// 遍历创建对应的 可写流
 		for(let i = 0; i < imgs.length; i++) {
-			var imgStream = fs.createWriteStream(`./img/ivsky${i}.jpg`);
+			var imgStream = fs.createWriteStream(`./img/vks${i}.jpg`);
 			download(imgs, i, imgStream)
 		}
 	})
@@ -57,9 +57,7 @@ request.end();
 
 function download(imgs, i, imgStream) {
 	http.get(imgs[i], function(res) {
-		res.on('error', (err) => {console.log(err)})
-       .pipe(imgStream)
-       .on('close', () => { console.log('成功!') })
+		res.pipe(imgStream);
 	})
 }
 //注意加end方法 结束请求

@@ -1,5 +1,5 @@
 // 解析Dom结构，网络爬虫简单实例
-
+// 只能解析一些简单的网站
 
 var http = require('http');
 var cheerio = require('cheerio');
@@ -9,7 +9,8 @@ http.get('http://www.gongjuji.net', function(req, res) {
         result += data;
     });
     req.on('end', function() {
-        //console.info(result);
+        // 读取到完整的 dom 结构
+        // console.info(result);
         parseHtml(result);
     });
 });
@@ -46,7 +47,7 @@ function parseHtml(result) {
 
 
   // 解析结果：
-  
+
   // [ { title: 'Md5加密工具',
   //   linkUrl: 'http://md5.gongjuji.net/encrypt/' },
   // { title: 'Md5解密工具',
