@@ -4,10 +4,10 @@ Cheerio实现了核心jQuery的一个子集。Cheerio从jQuery库中删除了所
 
 ### 安装
 `npm install cheerio`
-官网: [cheerio官网 https://github.com/cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
+官网: [cheerio GitHub官网 https://github.com/cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
 
 ### API
-[可直接在cheerio官网查找](https://github.com/cheeriojs/cheerio)
+[直接看cheerio GitHub](https://github.com/cheeriojs/cheerio)
 
 ### 示例
 ```js
