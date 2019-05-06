@@ -14,6 +14,7 @@
 │ ├──02_06_fs                        #fs 文件模块
 │ ├──02_07_stream                    #stream模块 (文件流接口)
 │ ├──02_08_cheerio                   #cheerio模块 (原生模块爬虫)
+│ ├──02_09_request                   #request模块 (request+cheerio 爬虫)
 ```
 
 ## 内容简介

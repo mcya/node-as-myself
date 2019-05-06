@@ -6,6 +6,9 @@ Cheerio实现了核心jQuery的一个子集。Cheerio从jQuery库中删除了所
 `npm install cheerio`
 官网: [cheerio官网 https://github.com/cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
 
+### API
+[可直接在cheerio官网查找](https://github.com/cheeriojs/cheerio)
+
 ### 示例
 ```js
 // 构建Dom结构 - 解析dom结构的: 01_domAnalysis.js
