@@ -3,7 +3,9 @@ Cheerio实现了核心jQuery的一个子集。Cheerio从jQuery库中删除了所
 即，Cheerio模块引入了jquery核心的一部分，去除了jquery库中所有在DOM和浏览器的不兼容部分，只保留了它主要核心API。
 
 ### 安装
+
 `npm install cheerio`
+
 官网: [cheerio GitHub官网 https://github.com/cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
 
 ### API

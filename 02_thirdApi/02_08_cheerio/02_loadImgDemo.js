@@ -38,7 +38,7 @@ var request = http.request({
 		const $ = cheerio.load(datas);
     console.log("$", $);
 		$("img").each(function(idx, dom) {
-			imgs.push($(dom).attr("src"))
+			imgs.push( $(dom).attr("src").replace(/\/t\//, '/pre/') )
 		})
     console.log("imgs", imgs);
 		// 遍历创建对应的 可写流
@@ -47,7 +47,6 @@ var request = http.request({
 			download(imgs, i, imgStream)
 		}
 	})
-
 })
 request.on("error", function(err) {
 	console.log('problem with request: ' + err.message)
@@ -55,11 +54,44 @@ request.on("error", function(err) {
 request.write(postData)
 request.end();
 
+// request(searchUrl, function(err, res, body) {
+//   if (!err && res.statusCode == 200) {
+//     var images,
+//       imageUrl,
+//       imageName,
+//       timestamp = new Date().getTime();
+//
+//     mkdirp(filePath);
+//     $ = cheerio.load(body);
+//     images = $('.box img');
+//     images.each(function(i, e) {
+//       imageUrl = e.attribs['src'].replace(/\/t\//, '/pre/');
+//       imageName = timestamp + i + '.jpg';
+//       console.log(imageUrl);
+//       request(imageUrl).pipe(fs.createWriteStream(filePath + "/" + imageName));
+//     });
+//   }
+// });
+
 function download(imgs, i, imgStream) {
 	http.get(imgs[i], function(res) {
+    console.log("imgStream", imgStream);
 		res.pipe(imgStream);
 	})
 }
+
+/*
+
+//在pipe之前添加on('error',fn)可以监听错误，在后面添加on('close',fn)可以监听完成
+
+var imgs = fs.createWriteStream(`./images/img${i}`)
+request(url).on('error', (err) => {
+	console.log(err)
+}).pipe(imgs).on('close', () => {
+	console.log('成功!')
+})
+
+*/
 //注意加end方法 结束请求
 //req.end()必须被调用，即使没有在请求体内写入任何数据
 //也必须调用。因为这表示已经完成HTTP请求
