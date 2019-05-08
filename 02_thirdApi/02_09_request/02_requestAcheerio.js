@@ -1,23 +1,13 @@
 const request = require('request');
 
-request({
-	method: 'GET',
-	url: 'http://api.avatardata.cn/Weather/Query',
-	headers: {
-		'Host': 'api.veilpark.com',
-		'mid': '8678385b7d1eb259377973ee02cd9d52618fc0f7',
-		'Accept': '*/*',
-		'Authorization': 'token 40101431f0c64e83839a56c2069b1a63jcrk8on1',
-		'Proxy-Connection': 'keep-alive',
-		'Accept-Language': 'zh-Hans;q=1',
-		'cversion': '4400',
-		'Content-Type': 'application/json',
-		'User-Agent': 'maskpark/4.4 (iPhone; iOS 9.3.1; Scale/2.00)',
-		'Connection': 'keep-alive',
-		'client': 'ios'
-	},
+// http://api.avatardata.cn/WorldNews/Query?key=xxxxxxxxxxxxxxxxx&page=1&rows=10
+// request.post({url:'http://service.com/upload', form: {key:'value'}}, function(err,httpResponse,body){ /* ... */ })
+request.post({
+	url: 'http://api.avatardata.cn/WorldNews/Query',
   form:{
-    key: "6973eb6e4c4d466e8db9cc90ab47daae",
+    key: "e143ba9836fb44fa9968e785726230f9",
+    rows:10,
+    page: 1,
   }
 }, (error, response, body) => {
 
