@@ -68,7 +68,7 @@ var fs = require("fs");
 // 创建一个可读流
 var readerStream = fs.createReadStream('input.txt');
 
-// 创建一个可写流 
+// 创建一个可写流
 // {'flags': 'a'}//追加文本
 var writerStream = fs.createWriteStream('output.txt');
 
@@ -82,6 +82,7 @@ console.log("程序执行完毕");
 ## 链式流
 链式是通过连接输出流到另外一个流并创建多个对个流操作链的机制。链式流一般用于管道操作。接下来我们就是用管道和链式来压缩和解压文件。
 
+
 ### 压缩
 ```javascript
 var fs = require("fs");
@@ -93,7 +94,7 @@ var zlib = require('zlib');
 fs.createReadStream('input.txt')
   .pipe(zlib.createGzip()) //把读取出来的文本调用压缩模块进行压缩
   .pipe(fs.createWriteStream('input.zip'));//把压缩好的流进行保存
-  
+
 console.log("文件压缩完成。");
 ```
 
@@ -106,6 +107,6 @@ var zlib = require('zlib');
 fs.createReadStream('input.zip')
   .pipe(zlib.createGunzip())
   .pipe(fs.createWriteStream('input1.txt'));
-  
+
 console.log("文件解压完成。")
 ```
