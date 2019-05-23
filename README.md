@@ -35,7 +35,7 @@
 ```
 
 ### 2.Node.js API及常用第三方模块(HTTP+net+URL+querystring+events+fs+stream+cheerio+anyproxy抓包+mocha单元测试)
-#### 2.1 [http 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_01_http)
+#### 2.1 [http 模块](https://github.com/mcya/node-as-myself/tree/master/02_01_http)
 ```bash
 所有后端动态语言要想运行起来，都得先搭建服务器。Node.js 搭建服务器需要用到一个原生的模块 http。
 1. 加载 http 模块
@@ -76,7 +76,7 @@ http.createServer(function(reqeust, response){
 
 ```
 
-#### 2.2 [net 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_02_net)
+#### 2.2 [net 模块](https://github.com/mcya/node-as-myself/tree/master/02_02_net)
 
 在Node中，net模块提供创建基于TCP协议的网络通信的API。
 ```js
@@ -108,7 +108,7 @@ server.listen(8124, function () {
 
 
 
-#### 2.3 [url 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_03_url)
+#### 2.3 [url 模块](https://github.com/mcya/node-as-myself/tree/master/02_03_url)
 请求的 url 都是字符串类型，url 所包含的信息也比较多，比如有：协议、主机名、端口、路径、参数、锚点等，如果对字符串解析这些信息的话，会相对麻烦，因此，Node.js 的原生模块 url 模块便可轻松解决这一问题
 
 `url.parse 将一个地址URL解析成对象的格式 - 字符串转对象`
@@ -138,7 +138,7 @@ var result = url.format(urlObj);
 console.log(result);
 ```
 
-#### 2.4 [querystring 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_04_querystring)
+#### 2.4 [querystring 模块](https://github.com/mcya/node-as-myself/tree/master/02_04_querystring)
 查询(参数)模块。
 GET 请求时参数都来自 URL，而 URL 都是字符串格式，为了方便操作，可以把字符串格式的参数通过 querystring 转换格式
 
@@ -163,7 +163,7 @@ console.log(newobj);
 */
 ```
 
-#### 2.5 [events 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_05_events)
+#### 2.5 [events 模块](https://github.com/mcya/node-as-myself/tree/master/02_05_events)
 
 ```javascript
 // -用法
@@ -200,7 +200,7 @@ console.log("log: 程序执行完毕。");
 */
 ```
 
-#### 2.6 [fs 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_06_fs)
+#### 2.6 [fs 模块](https://github.com/mcya/node-as-myself/tree/master/02_06_fs)
 
 文件模块。
 出于安全因互，javascript 是不能操作本地文件，所以文件的处理都会放到服务端去处理。Node.js 作为一门后端动态语言，同样具备了操作文件的功能，这一操作需要用到 Node.js 的原生模块：fs。 - 类似 文本读取写入和图片读取
@@ -231,7 +231,7 @@ http.createServer(function(request, response){
 console.log('Server running at http://127.0.0.1:8888/'); //访问地址端口
 ```
 
-#### 2.7 [stream 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_07_stream)
+#### 2.7 [stream 模块](https://github.com/mcya/node-as-myself/tree/master/02_07_stream)
 文件流。
 Stream 是一个抽象接口，Node 中有很多对象实现了这个接口。例如，对http 服务器发起请求的request 对象就是一个 Stream，还有stdout（标准输出）。往往用于打开大型的文本文件，创建一个读取操作的数据流。所谓大型文本文件，指的是文本文件的体积很大，读取操作的缓存装不下，只能分成几次发送，每次发送会触发一个data事件，发送结束会触发end事件。
 ```js
@@ -280,7 +280,7 @@ fs.createReadStream('input.txt.zip'); //文件名应该是对应的
 console.log("程序执行完毕");
 ```
 
-#### 2.8 [cheerio 模块](https://github.com/mcya/node-as-myself/tree/master/02_thirdApi/02_08_cheerio)
+#### 2.8 [cheerio 模块](https://github.com/mcya/node-as-myself/tree/master/02_08_cheerio)
 综合实现爬种。
 ```js
 //原生http模块，用于请求文件或者创建服务器
