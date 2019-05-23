@@ -3,7 +3,6 @@ var url = require('url');
 var _parse = url.parse('http://www.dk-lan.com:8080/p/a/t/h?query=string#hash', false, false);
 
 console.log(_parse);
-
 /*
 http://www.dk-lan.com:8080/p/a/t/h?query=string#hash
 
@@ -47,7 +46,7 @@ hash: 锚点部分（即：“#”及其后的部分）
 例如: '#hash'
  */
 
-var urlObj = { 
+var urlObj = {
   	protocol: 'http:',
     slashes: true,
     hostname: 'dk-lan.com',
