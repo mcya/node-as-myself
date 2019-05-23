@@ -7,10 +7,10 @@ const request = require('request');
 
 // request.post('http://service.com/upload').form({key:'value'})
 
-// request.post({url:'http://service.com/upload', form: {key:'value'}}, function(err,httpResponse,body){
-//   console.log(err);
-//   console.log(" -------------------- ");
-//   console.log(httpResponse);
-//   console.log(" -------------------- ");
-//   console.log(body);
-// })
+request.post({url:'http://service.com/upload', form: {key:'value'}}, function(err,httpResponse,body){
+  console.log(err);
+  console.log(" -------------------- ");
+  console.log(httpResponse);
+  console.log(" -------------------- ");
+  console.log(body);
+})

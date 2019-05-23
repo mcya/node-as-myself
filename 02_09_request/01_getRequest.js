@@ -10,7 +10,6 @@ var request = require('request');
 //     console.log(body)
 // })
 
-
 // 直接拉取
 request('https://cnodejs.org/api/v1/topic/5433d5e4e737cbe96dcef312', (error, response, body) => {
     console.log(body)
