@@ -7,7 +7,6 @@ var readerData = '';
 var readerStream = fs.createReadStream('input.txt');
 // console.log(readerStream);
 
-
 // 设置编码为 utf8。
 readerStream.setEncoding('UTF8');
 
