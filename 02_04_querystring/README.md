@@ -5,6 +5,7 @@ GET 请求时参数都来自 URL，而 URL 都是字符串格式，为了方便�
 ```javascript
 var str = 'firstname=dk&url=http%3A%2F%2Fdk-lan.com&lastname=tom&passowrd=123456';
 var param = querystring.parse(param);
+
 //结果
 //{firstname:"dk", url:"http://dk-lan.com", lastname: 'tom', passowrd: 123456};
 ```
