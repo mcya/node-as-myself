@@ -1,6 +1,6 @@
 # Request
 一个第三方的模块，可用于发起 http 或 https 请求，可理解成服务端的 ajax 请求。可用于代简单的服务器代理，用法和 ajax 类似。
-`request` 拉取将获取编写整个页面的代码。
+`request` 拉取, `get/post`获取编写整个页面的代码, 也可以结合`fs`模块转成文件流。
 
 在使用前需要先安装 `npm install request --save`
 
