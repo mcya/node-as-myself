@@ -1,7 +1,9 @@
 let net = require('net');
+
 let {
     StringDecoder
 } = require('string_decoder');
+
 let {
     Readable
 } = require('stream');
