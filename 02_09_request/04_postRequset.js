@@ -4,7 +4,6 @@ const request = require('request');
 
 // request.post('http://service.com/upload', {form:{key:'value'}})
 
-
 // request.post('http://service.com/upload').form({key:'value'})
 
 request.post({url:'http://service.com/upload', form: {key:'value'}}, function(err,httpResponse,body){

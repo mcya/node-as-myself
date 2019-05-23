@@ -1,6 +1,5 @@
 // multipart/form-data (Multipart Form Uploads)
 
-
 var formData = {
   // Pass a simple key-value pair
   my_field: 'my_value',
