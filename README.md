@@ -3,9 +3,9 @@
 ## 目录说明
 
 ```bash
-├─01_base                           #nodeJS一些日常化的知识点
+├─01_base                         #nodeJS一些日常化的知识点
 │
-├─02_thirdApi                       #Node.js API及常用第三方模块
+├─02_thirdApi                     #Node.js API及常用第三方模块
 │ ├──02_01_http                      #http模块
 │ ├──02_02_net                       #net模块
 │ ├──02_03_url                       #url模块
@@ -18,6 +18,8 @@
 │ ├──02_10_AnyProxy                  #node抓包工具AnyProxy
 │ ├──02_10_Anync                     #Async异步控制流
 │ ├──02_11_Mocha                     #Mocha单元测试
+├─03_baseApply                    #Node.js 基础应用
+│ ├──03_01_router                    #router路由
 ```
 
 ## 内容简介
@@ -320,3 +322,7 @@ Node.js 为解决这一问题推出了异步控制流 ———— Async
 注： 如需操作需要新建出一个mocha文件夹。
 
 详见文档
+
+### 3.node基础应用
+#### 3.1 [node 路由](https://github.com/mcya/node-as-myself/tree/master/03_01_router)
+在 BS 架构中，路由的概念都是一样的，可理解为根据客户端请求的 URL 映射到不同的方法实现，更多的一般都是针对 URL 中的路径，或者是参数，又或者是锚点这些信息进行映射。
