@@ -315,5 +315,8 @@ Node.js 为解决这一问题推出了异步控制流 ———— Async
 详见文档
 
 #### 2.11 [mocha单元测试](https://github.com/mcya/node-as-myself/tree/master/02_09_mocha)
+为保证代码的质量，单元测试必不可少
+
 注： 如需操作需要新建出一个mocha文件夹。
+
 详见文档
