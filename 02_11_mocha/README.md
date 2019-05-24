@@ -66,10 +66,10 @@ npm install -g istanbul
 istanbul cover _mocha //执行后会在 终端/cmd 显示出 Coverage summary 同时 coverage 文件夹会生成结果文件
 ```
 
-- 行覆盖率（line coverage）：是否每一行都执行了？
-- 函数覆盖率（function coverage）：是否每个函数都调用了？
-- 分支覆盖率（branch coverage）：是否每个if代码块都执行了？
-- 语句覆盖率（statement coverage）：是否每个语句都执行了？
+- 行覆盖率（Line coverage）：是否每一行都执行了？
+- 函数覆盖率（Function coverage）：是否每个函数都调用了？
+- 分支覆盖率（Branch coverage）：是否每个if代码块都执行了？
+- 语句覆盖率（Statement coverage）：是否每个语句都执行了？
 
 修改`index.js`再看代码覆盖率
 ```js
@@ -96,6 +96,58 @@ describe('Test', function() {
 })
 ```
 代码覆盖率又回到了100%
+
+### 以上部分，均为服务端代码测试
+
+### 客户端代码测试
+
+index.js
+```js
+window.createDiv = function(value) {
+  var oDiv = document.createElement('div')
+  oDiv.id = 'myDiv'
+  oDiv.innerHTML = value
+  document.body.appendChild(oDiv)
+}
+```
+
+test.js
+```js
+mocha.ui('bdd')
+
+var expect = chai.expect
+describe("Tests", function () {
+  before(function () {
+    createDiv('test')
+  })
+  it("content right", function () {
+    var el = document.querySelector('#myDiv')
+    expect(el).to.not.equal(null)
+    expect(el.innerHTML).to.equal("test")
+  })
+})
+
+mocha.run()
+```
+
+新建 `test.html`
+```html
+<html>
+   <head>
+     <title> Tests </title>
+     <link rel="stylesheet" href="../node_modules/mocha/mocha.css"/>
+   </head>
+   <body>
+     <div id="mocha"></div>
+     <script src="../node_modules/mocha/mocha.js"></script>
+     <script src="../node_modules/chai/chai.js"></script>
+     <script src="../index.js"></script>
+     <script src="./test.js"></script>
+   </body>
+ </html>
+```
+
+##### 最后 直接用浏览器打开test.html文件便能看到测试结果
 
 # 参考文档
 
