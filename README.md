@@ -15,7 +15,8 @@
 │ ├──02_07_stream                    #stream模块 (文件流接口)
 │ ├──02_08_cheerio                   #cheerio模块 (原生模块爬虫)
 │ ├──02_09_request                   #request模块 (request+cheerio 爬虫)
-│ ├──02_09_AnyProxy                  #node抓包工具AnyProxy (Async异步控制流)
+│ ├──02_10_AnyProxy                  #node抓包工具AnyProxy
+│ ├──02_10_Anync                     #Async异步控制流
 ```
 
 ## 内容简介
