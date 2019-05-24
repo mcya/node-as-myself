@@ -17,6 +17,7 @@
 │ ├──02_09_request                   #request模块 (request+cheerio 爬虫)
 │ ├──02_10_AnyProxy                  #node抓包工具AnyProxy
 │ ├──02_10_Anync                     #Async异步控制流
+│ ├──02_11_Mocha                     #Mocha单元测试
 ```
 
 ## 内容简介
@@ -302,3 +303,17 @@ request.post({url:'http://service.com/upload', form: {key:'value'}}, function(er
 // 文件流的形式 - img
 request('http://img.zcool.cn/community/018d4e554967920000019ae9df1533.jpg@900w_1l_2o_100sh.jpg').pipe(fs.createWriteStream('test.png'))
 ```
+
+#### 2.10 [anyproxy抓包工具](https://github.com/mcya/node-as-myself/tree/master/02_10_anyproxy)
+详见文档
+
+#### 2.10 [async异步控制流程](https://github.com/mcya/node-as-myself/tree/master/02_10_async)
+Node.js 是一个异步机制的服务端语言，在大量异步的场景下需要按顺序执行，那正常做法就是回调嵌套回调，回调嵌套太多的问题被称之回调地狱。
+
+Node.js 为解决这一问题推出了异步控制流 ———— Async
+
+详见文档
+
+#### 2.11 [mocha单元测试](https://github.com/mcya/node-as-myself/tree/master/02_09_mocha)
+注： 如需操作需要新建出一个mocha文件夹。
+详见文档
