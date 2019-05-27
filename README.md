@@ -21,7 +21,7 @@
 ├─03_baseApply                    #Node.js 基础应用
 │ ├──03_01_router                    #router路由
 │ ├──03_02_request                   #request (02-09)
-│ ├──03_03_http小爬虫                 #http小爬虫
+│ ├──03_03_http小爬虫                 #http小爬虫 (request+cheerio)
 
 ```
 
