@@ -333,3 +333,4 @@ Node.js 为解决这一问题推出了异步控制流 ———— Async
 详见文档
 
 #### 3.2 [request](https://github.com/mcya/node-as-myself/tree/master/02_09_request)
+#### 3.3 [http小爬虫](https://github.com/mcya/node-as-myself/tree/master/03_03_requestCheerio)
