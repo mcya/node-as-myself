@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, '/')));
 
 // 文件单个上传 - 相当于一个后台api接口
 app.post('/singleUpload', upload.single('avatar'), function (req, res, next) {
+  res.append("Access-Control-Allow-Origin","*");
   console.log(req.file);
   console.log(req.body);
   res.end("up success");
@@ -35,6 +36,7 @@ app.post('/singleUpload', upload.single('avatar'), function (req, res, next) {
 
 // 文件多个上传
 app.post('/mulUpload', upload.array('photos', 12), function (req, res, next) {
+  res.append("Access-Control-Allow-Origin","*");
   console.log(req.file);
   console.log(req.body);
   // res.end("up success");

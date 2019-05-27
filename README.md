@@ -337,3 +337,15 @@ Node.js 为解决这一问题推出了异步控制流 ———— Async
 
 #### 3.2 [request](https://github.com/mcya/node-as-myself/tree/master/02_09_request)
 #### 3.3 [http小爬虫](https://github.com/mcya/node-as-myself/tree/master/03_03_requestCheerio)
+
+### 4.Express 及其他服务器框架
+#### 4.1 [express](https://github.com/mcya/node-as-myself/tree/master/04_01_express)
+Express 是一个第三方模块，对原生模块封装了一套更灵活、更简洁的应用框架，其在 Node.js 环境的地位和作用好比 jQuery 在前端的地位和作用。
+
+#### 4.2 [multer 文件上传](https://github.com/mcya/node-as-myself/tree/master/04_02_express_multer)
+```js
+// multer为第三方模块 需要install
+npm install multer
+
+// var upload = multer({ dest:  path.join(__dirname,'temp')});
+```
