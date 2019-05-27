@@ -1,5 +1,5 @@
 # 文件上传
-- body-parser 并不技术文件上传，所以这里要用到另一个第三方模块 multer
+- body-parser 并不支持文件上传，所以这里要用到另一个第三方模块 multer
 - 安装 multer `npm install multer`
 - 使用前先定义上传的路径
 
@@ -12,7 +12,7 @@ var multer = require ('multer');
 var path = require('path')  ;
 //设置上传的目录，  
 var upload = multer({ dest:  path.join(__dirname,'temp')});  
-var app = express(); 
+var app = express();
 
 app.use(express.static(path.join(__dirname, '/')));
 
@@ -40,7 +40,7 @@ app.post('/mulUpload', upload.array('photos', 12), function (req, res, next) {
   console.log(req.files);  
   console.log(req.body);  
   res.end(req.file + "<br/><br/>" + req.body);  
-}) 
+})
 ```
 
 ### 原生js
@@ -57,7 +57,7 @@ app.post('/mulUpload', upload.array('photos', 12), function (req, res, next) {
                 var myForm = new FormData();    // 创建一个空的FormData对象
                 myForm.append("username", document.querySelector('#username').value);       // append()方法添加字段
                 myForm.append("pwd", document.querySelector('#pwd').value);   // 数字123456立即被转换成字符串“123456”
-                
+
                 let files = document.querySelector('[type=file]').files;
                 for(var i = 0; i < files.length; i++){
                     myForm.append("photos", files[i]);                
@@ -145,7 +145,7 @@ var storage = multer.diskStorage({
 // // 通过 storage 选项来对 上传行为 进行定制化
 var upload = multer({ storage: storage })
 
-var app = express(); 
+var app = express();
 
 app.use(express.static(path.join(__dirname, '/')));
 
