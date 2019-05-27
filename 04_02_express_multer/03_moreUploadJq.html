@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文件上传</title>
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <script src="./00_multerUpload.js" charset="utf-8"></script>
+</head>
+<body>
+    <form>
+        <input type="text" name="username" id="username">
+        <input type="text" name="pwd" id="pwd">
+        <input type="file" name="photos" id="photos" multiple>
+        <input type="button" value="submit" id="btn_submit">
+    </form>
+
+    <script>
+        $(function(){
+            $('#btn_submit').click(function(){
+                var myForm = new FormData();    // 创建一个空的FormData对象
+                myForm.append("username", document.querySelector('#username').value);       // append()方法添加字段
+                myForm.append("pwd", document.querySelector('#pwd').value);   // 数字123456立即被转换成字符串“123456”
+                let files = document.querySelector('[type=file]').files;
+                for(var i = 0; i < files.length; i++){
+                    myForm.append("photos", files[i]);
+                }
+                $.ajax({
+                    url: 'http://localhost:8085/mulUpload',
+                    type: 'post',
+                    data: myForm,
+                    contentType: false,
+                    processData: false,
+                    success: function(res){
+                        console.log(res)
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>
