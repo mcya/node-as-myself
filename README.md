@@ -20,6 +20,7 @@
 │ ├──02_11_Mocha                     #Mocha单元测试
 ├─03_baseApply                    #Node.js 基础应用
 │ ├──03_01_router                    #router路由
+│ ├──03_02_request                   #request (02-09)
 ```
 
 ## 内容简介
@@ -326,4 +327,7 @@ Node.js 为解决这一问题推出了异步控制流 ———— Async
 ### 3.node基础应用
 #### 3.1 [node 路由](https://github.com/mcya/node-as-myself/tree/master/03_01_router)
 在 BS 架构中，路由的概念都是一样的，可理解为根据客户端请求的 URL 映射到不同的方法实现，更多的一般都是针对 URL 中的路径，或者是参数，又或者是锚点这些信息进行映射。
+
 详见文档
+
+#### 3.2 [request](https://github.com/mcya/node-as-myself/tree/master/02_09_request)
