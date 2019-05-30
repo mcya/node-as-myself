@@ -65,4 +65,4 @@ const req = http.get('http://fs.w.kugou.com/201903291031/8de6755d3130fef2cdf40a8
 ```
 
 
-## 关于 录屏/视频下载详见 【[录屏下载](https://github.com/mcya/node-as-myself/tree/master/04_02_express_multer_apply/录屏下载_延伸)】 目录下md文档和文件
+## 关于录屏下载详见 【[录屏下载](https://github.com/mcya/node-as-myself/tree/master/04_02_express_multer_apply/录屏下载_延伸)】 目录下md文档和文件
