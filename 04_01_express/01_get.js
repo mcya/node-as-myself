@@ -9,14 +9,15 @@ app.listen(8080, function(){
 // 路由 内容
 // ---------------------------------------------------------------------------------------------------------
 
-// 访问8080显示的内容
+// 访问8080显示的内容 - req, res
 app.get('/', function(request, response){
-  response.send('this is only one can write to page content for "localhost:8080" ');
+  response.send('Hello World!');
 })
+
 
 // 相当于一个跳转router
 app.get('/getUsers', function(request, response){
-  response.send('this is router to "/getUsers" web');
+  response.send('坚持一个中国！');
 })
 
 // ---------------------------------------------------------------------------------------------------------
