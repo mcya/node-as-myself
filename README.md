@@ -25,7 +25,7 @@
 ├─04_Express                      #Express 及其他服务器框架
 │ ├──04_01_express                   #Express 基础应用
 │ ├──04_02_express_multer            #Express_multer 文件上传
-│ ├──04_02_express_multer_apply      #Express_multer 文件上传具体分类应用
+│ ├──04_02_express_multer_apply      #Express_multer 文件上传具体分类应用实例
 
 ```
 
@@ -350,4 +350,4 @@ npm install multer
 
 // var upload = multer({ dest:  path.join(__dirname,'temp')});
 ```
-#### 4.2 [multer 文件上传应用](https://github.com/mcya/node-as-myself/tree/master/04_02_express_multer_apply)
+#### 4.2 [multer 文件上传应用实例](https://github.com/mcya/node-as-myself/tree/master/04_02_express_multer_apply)
