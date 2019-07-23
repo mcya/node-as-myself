@@ -1,4 +1,4 @@
-# node #
+# node [Season One]  #
 
 ## 目录说明
 
@@ -38,6 +38,27 @@
 │
 ├─07_Socket                      #WebSocket Socket.io
 
+```
+
+## [Season One] 内容总结
+```
+1. node的一些基本了解使用
+2. 了解使用一些模块：
+      http服务模块
+      net网络模块
+      URL模块
+      querystring参数模块
+      events可监听模块
+      fs文件模块
+      stream模块 (文件流接口)
+      cheerio模块 (原生模块爬虫) - request模块
+      Async异步控制流
+      Mocha单元测试
+3. 关于router路由和爬虫(cheerio)
+4. 服务器框架express
+5. node对数据库(MongoDB、MySql)的一些操作(连接池)
+6. session token
+7. Socket WebSocket
 ```
 
 ## 内容简介
